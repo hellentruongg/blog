@@ -7,7 +7,11 @@
       "creationDate": "11 november 2024",
       "likes": 37,
       "dislikes": 4,
-      "comments": []
+      "comments": [
+        "Åh, sushi i Thailand, det låter helt fantastiskt! Jag älskar att börja en resa med god mat. Hoppas ni hann njuta av solnedgången också!",
+        "Det verkar som en härlig start på resan! Phuket har så mycket att erbjuda, vilken del av ön befann ni er på?",
+        "En powernap vid poolen låter som den perfekta sättet att komma över jetlag. Hur var temperaturen i vattnet?"
+      ]
     },
     {
       "title": "En weekend till Singapore",
@@ -16,7 +20,9 @@
       "creationDate": "8 april 2020",
       "likes": 21,
       "dislikes": 3,
-      "comments": []
+      "comments": [
+        "Wow, det verkar som en väldigt snabb helg men ändå fylld med aktiviteter! Sentosa Island och Universal Studios måste ha varit magiskt."
+      ]
     },
     {
       "title": "Vandring till Trolltunga i Norge",
@@ -25,7 +31,10 @@
       "creationDate": "28 augusti 2022",
       "likes": 139,
       "dislikes": 2,
-      "comments": []
+      "comments": [
+        "Så inspirerande! Trolltunga har alltid varit på min lista. Jag kan bara föreställa mig hur otroligt det måste ha varit att nå toppen efter den långa vandringen.",
+        "Vilken fantastisk prestation! Hur var vädret under er vandring?"
+      ]
     },
     {
       "title": "Såhär spenderade jag 24 timmar i London",
@@ -34,7 +43,11 @@
       "creationDate": "8 maj 2019",
       "likes": 16,
       "dislikes": 7,
-      "comments": []
+      "comments": [
+        "London är verkligen en stad som man kan upptäcka gång för gång. Det är så mycket charm med små gator och pubar!",
+        "Vilket bra sätt att upptäcka London på! Hur var vädret under er promenad? Och var Shaftesbury Theatre bra för en första gång på musikal?",
+        "Jag älskar London! Det bästa är att varje gång man besöker hittar man nya ställen att upptäcka. Något favoritställe från er promenad?"
+      ]
     },
     {
       "title": "Spännande upplevelser att inte missa i New York",
@@ -43,7 +56,9 @@
       "creationDate": "7 mars 2023",
       "likes": 77,
       "dislikes": 0,
-      "comments": []
+      "comments": [
+        "New York är verkligen en stad för alla sinnen. Var det lätt att få biljetter till Broadway?"
+      ]
     }
   ]
 }
