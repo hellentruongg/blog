@@ -1,11 +1,7 @@
 <main>
   <h1>Senaste nytt</h1>
   @for(post of posts; track post.id){
-  <article>
-    <img [src]="post.thumbnailUrl" />
-
-    <h2>{{ post.title }}</h2>
-  </article>
+  <post-item [post]="post"></post-item>
 
   }
 </main>

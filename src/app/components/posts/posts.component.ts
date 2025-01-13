@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { PostService } from '../../services/post.service';
 import { Post } from '../../models/post';
+import { PostItemComponent } from '../post-item/post-item.component';
 
 @Component({
   selector: 'posts',
-  imports: [],
+  imports: [PostItemComponent],
   templateUrl: './posts.component.html',
   styleUrl: './posts.component.css',
 })
