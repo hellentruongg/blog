@@ -17,26 +17,27 @@ export class PostDetailsComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private postService: PostService
-  ) {
+  ) {}
+
+  ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params) => {
       const id = params.get('id');
       if (id == null) {
         this.postId = null;
       } else {
         this.postId = Number.parseInt(id);
+        this.getPost();
       }
     });
-  }
-
-  ngOnInit(): void {
-    this.getPost();
   }
 
   getPost(): void {
     const posts = this.postService.posts;
     console.log(posts);
 
-    const post = posts.find((post) => post.id === this.postId);
+    // varför är id av datatypen string, borde vara nummer?
+    const post = posts.find((post) => post.id == this.postId);
+    console.log(post);
 
     this.post = post;
     console.log(this.post);
