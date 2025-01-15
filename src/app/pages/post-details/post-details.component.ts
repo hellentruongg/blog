@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Post } from '../../models/post';
@@ -10,7 +10,7 @@ import { PostService } from '../../services/post.service';
   templateUrl: './post-details.component.html',
   styleUrl: './post-details.component.css',
 })
-export class PostDetailsComponent {
+export class PostDetailsComponent implements OnInit {
   postId: number | null = null;
   post: Post | undefined;
 
@@ -24,9 +24,12 @@ export class PostDetailsComponent {
         this.postId = null;
       } else {
         this.postId = Number.parseInt(id);
-        this.getPost();
       }
     });
+  }
+
+  ngOnInit(): void {
+    this.getPost();
   }
 
   getPost(): void {
@@ -38,4 +41,13 @@ export class PostDetailsComponent {
     this.post = post;
     console.log(this.post);
   }
+
+  // get post(): Post | undefined {
+  //   const posts = this.postService.posts;
+
+  //   const post = posts.find((post) => post.id === this.postId);
+  //   console.log(post);
+
+  //   return post;
+  // }
 }
