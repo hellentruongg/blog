@@ -1,18 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
+import { faThumbsDown } from '@fortawesome/free-regular-svg-icons';
+import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { Post } from '../../models/post';
 import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'app-post-details',
-  imports: [DatePipe, RouterLink],
+  imports: [DatePipe, RouterLink, FontAwesomeModule],
   templateUrl: './post-details.component.html',
   styleUrl: './post-details.component.css',
 })
 export class PostDetailsComponent implements OnInit {
   postId: number | null = null;
   post: Post | undefined;
+  likes: number = 0;
+  dislikes: number = 0;
+  faThumbsUp = faThumbsUp;
+  faThumbsDown = faThumbsDown;
+  faComment = faComment;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -26,29 +35,34 @@ export class PostDetailsComponent implements OnInit {
         this.postId = null;
       } else {
         this.postId = Number.parseInt(id);
-        this.getPost();
+        // this.getPost();
+        this.post = this.getPost();
+        this.likes = this.getPostLikes();
+        this.dislikes = this.getPostDislikes();
       }
     });
   }
 
-  getPost(): void {
-    const posts = this.postService.posts;
-    console.log(posts);
-
-    // varför är id av datatypen string, borde vara nummer?
-    const post = posts.find((post) => post.id == this.postId);
-    console.log(post);
-
-    this.post = post;
-    console.log(this.post);
+  getPost(): Post | undefined {
+    const post = this.postService.posts.find((post) => post.id === this.postId);
+    return post;
   }
 
-  // get post(): Post | undefined {
-  //   const posts = this.postService.posts;
+  getPostLikes(): number {
+    return this.post?.likes ?? 0; // if post is undefined, likes will be set to 0 (just to prevent the runtime error)
+  }
 
-  //   const post = posts.find((post) => post.id === this.postId);
-  //   console.log(post);
+  getPostDislikes(): number {
+    return this.post?.dislikes ?? 0;
+  }
 
-  //   return post;
-  // }
+  likePost(): void {
+    this.likes++;
+    console.log(this.likes);
+  }
+
+  dislikePost(): void {
+    this.dislikes++;
+    console.log(this.dislikes);
+  }
 }

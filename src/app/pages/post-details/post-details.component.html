@@ -3,13 +3,24 @@
 @if (post !== undefined) {
 <article>
   <h1>{{ post.title }}</h1>
-  <img [src]="post.thumbnailUrl" />
-  <br />
-  <span>{{ post.creationDate | date : "d MMMM yyyy" }}</span>
+
+  <p>{{ post.creationDate | date : "d MMMM yyyy" }}</p>
+
   <div>
-    <span>Likes: {{ post.likes }}</span>
-    <span>Dislikes: {{ post.dislikes }}</span>
+    <span (click)="likePost()">
+      <fa-icon [icon]="faThumbsUp"></fa-icon>{{ likes }}
+    </span>
+
+    <span (click)="dislikePost()">
+      <fa-icon [icon]="faThumbsDown"></fa-icon>{{ dislikes }}
+    </span>
+
+    <span>
+      <fa-icon [icon]="faComment"></fa-icon>{{ post.comments.length }}
+    </span>
   </div>
+  <img [src]="post.thumbnailUrl" />
+
   <p>{{ post.body }}</p>
 </article>
 }
