@@ -7,10 +7,11 @@ import { faThumbsDown } from '@fortawesome/free-regular-svg-icons';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { Post } from '../../models/post';
 import { PostService } from '../../services/post.service';
+import { CommentItemComponent } from '../../components/comment-item/comment-item.component';
 
 @Component({
   selector: 'app-post-details',
-  imports: [DatePipe, RouterLink, FontAwesomeModule],
+  imports: [DatePipe, RouterLink, FontAwesomeModule, CommentItemComponent],
   templateUrl: './post-details.component.html',
   styleUrl: './post-details.component.css',
 })
