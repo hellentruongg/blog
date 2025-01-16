@@ -8,10 +8,17 @@ import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { Post } from '../../models/post';
 import { PostService } from '../../services/post.service';
 import { CommentItemComponent } from '../../components/comment-item/comment-item.component';
+import { CommentFormComponent } from '../../components/comment-form/comment-form.component';
 
 @Component({
   selector: 'app-post-details',
-  imports: [DatePipe, RouterLink, FontAwesomeModule, CommentItemComponent],
+  imports: [
+    DatePipe,
+    RouterLink,
+    FontAwesomeModule,
+    CommentItemComponent,
+    CommentFormComponent,
+  ],
   templateUrl: './post-details.component.html',
   styleUrl: './post-details.component.css',
 })

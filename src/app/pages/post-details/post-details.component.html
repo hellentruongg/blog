@@ -24,7 +24,13 @@
   <p>{{ post.body }}</p>
 </article>
 
-<h2>{{ post.comments.length }} Kommentarer</h2>
-@for(comment of post.comments; track $index){
-<comment-item [comment]="comment"></comment-item>
-} }
+<comment-form></comment-form>
+
+<div>
+  <h2>{{ post.comments.length }} Kommentarer</h2>
+  @for(comment of post.comments; track $index){
+  <comment-item [comment]="comment"></comment-item>
+  }
+</div>
+
+}
