@@ -1,0 +1,14 @@
+<section>
+  <comment-form
+    [postId]="postId"
+    (onAddComment)="addComment($event)"
+  ></comment-form>
+
+  <div>
+    <h2>{{ comments.length }} Kommentarer</h2>
+
+    @for(comment of comments; track $index){
+    <comment-item [comment]="comment"></comment-item>
+    }
+  </div>
+</section>

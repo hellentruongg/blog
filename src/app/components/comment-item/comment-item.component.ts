@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Comment } from '../../models/comment';
 
 @Component({
   selector: 'comment-item',
@@ -8,5 +9,5 @@ import { Component, Input } from '@angular/core';
 })
 export class CommentItemComponent {
   @Input()
-  comment: string = '';
+  comment: Comment = {} as any as Comment;
 }

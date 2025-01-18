@@ -1,12 +1,13 @@
-<p>comment-form works!</p>
-
-<form>
+<form (ngSubmit)="onSubmit()">
   <h2><label for="comment">Lämna en kommentar</label></h2>
   <p>Din kommentar är anonym.</p>
   <textarea
     name="comment"
     id="comment"
     placeholder="Skriv en kommentar"
+    [(ngModel)]="comment"
   ></textarea>
   <input type="submit" value="Publicera kommentar" />
 </form>
+
+{{ comment }}

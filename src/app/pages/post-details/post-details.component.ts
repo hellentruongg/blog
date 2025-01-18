@@ -7,18 +7,11 @@ import { faThumbsDown } from '@fortawesome/free-regular-svg-icons';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { Post } from '../../models/post';
 import { PostService } from '../../services/post.service';
-import { CommentItemComponent } from '../../components/comment-item/comment-item.component';
-import { CommentFormComponent } from '../../components/comment-form/comment-form.component';
+import { CommentsComponent } from '../../components/comments/comments.component';
 
 @Component({
   selector: 'app-post-details',
-  imports: [
-    DatePipe,
-    RouterLink,
-    FontAwesomeModule,
-    CommentItemComponent,
-    CommentFormComponent,
-  ],
+  imports: [DatePipe, RouterLink, FontAwesomeModule, CommentsComponent],
   templateUrl: './post-details.component.html',
   styleUrl: './post-details.component.css',
 })
@@ -43,7 +36,6 @@ export class PostDetailsComponent implements OnInit {
         this.postId = null;
       } else {
         this.postId = Number.parseInt(id);
-        // this.getPost();
         this.post = this.getPost();
         this.likes = this.getPostLikes();
         this.dislikes = this.getPostDislikes();
