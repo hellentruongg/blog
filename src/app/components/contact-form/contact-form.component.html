@@ -1,0 +1,49 @@
+<section>
+  <h2>Kontakta mig</h2>
+  <p>Obligatoriska fält är märkta *</p>
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div>
+      <label for="name">Namn *</label> <br />
+      <input
+        type="text"
+        id="name"
+        name="name"
+        ngModel
+        #name="ngModel"
+        required
+      />
+    </div>
+    <div>
+      <label for="email">Email *</label> <br />
+      <input
+        type="text"
+        id="email"
+        name="email"
+        ngModel
+        #email="ngModel"
+        required
+      />
+    </div>
+    <div>
+      <label for="subject">Ämne</label> <br />
+      <input
+        type="text"
+        id="subject"
+        name="subject"
+        ngModel
+        #subject="ngModel"
+      />
+    </div>
+    <div>
+      <label for="message">Meddelande *</label> <br />
+      <textarea
+        id="message"
+        name="message"
+        ngModel
+        #message="ngModel"
+        required
+      ></textarea>
+    </div>
+    <input type="submit" value="Skicka meddelande" [disabled]="form.invalid" />
+  </form>
+</section>
