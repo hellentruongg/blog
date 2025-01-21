@@ -4,5 +4,9 @@
     <li><a routerLink="/">Hem</a></li>
     <li><a routerLink="/about-me">Om mig</a></li>
   </ul>
-  <button routerLink="/admin">Bloggare</button>
+  <!-- <button routerLink="/admin">Bloggare</button> -->
+  <btn
+    [text]="isAdmin ? 'Besökare' : 'Bloggare'"
+    (onEmitClick)="toggleView()"
+  ></btn>
 </nav>
