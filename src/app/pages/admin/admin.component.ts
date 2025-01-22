@@ -10,7 +10,7 @@ import { AdminService } from '../../../services/admin.service';
 export class AdminComponent {
   constructor(private adminService: AdminService) {}
 
-  get visibility() {
+  get visible() {
     return this.adminService.isVisible;
   }
 }
