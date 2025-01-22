@@ -4,7 +4,13 @@
     <li><a routerLink="/">Hem</a></li>
     <li><a routerLink="/about-me">Om mig</a></li>
   </ul>
-  <!-- <button routerLink="/admin">Bloggare</button> -->
+
+  @if (isAdmin) {
+  <btn text="Skapa inlägg" (onEmitClick)="onTogglePostForm()">
+    <fa-icon [icon]="faPlus"></fa-icon>
+  </btn>
+  }
+
   <btn
     [text]="isAdmin ? 'Besökare' : 'Bloggare'"
     (onEmitClick)="toggleView()"

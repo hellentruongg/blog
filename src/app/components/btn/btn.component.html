@@ -1,1 +1,4 @@
-<button (click)="emitClick()">{{ text }}</button>
+<button (click)="emitClick()">
+  <ng-content></ng-content>
+  {{ text }}
+</button>
