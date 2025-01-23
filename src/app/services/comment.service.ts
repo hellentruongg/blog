@@ -16,8 +16,10 @@ export class CommentService {
       .then((res) => res.json())
       .then((data: Comment[]) => {
         this.comments = data;
-
         // console.log('Service COMMENTS:', this.comments); // comments array is populated
+      })
+      .catch((error) => {
+        console.error('Error:', error);
       });
   }
 
@@ -31,9 +33,12 @@ export class CommentService {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newComment),
     })
-      .then((res) => res.json())
-      .then((savedComment) => {
-        console.log('Saved comment:', savedComment);
+      // .then((res) => res.json())
+      // .then((savedComment) => {
+      //   console.log('Saved comment:', savedComment);
+      // });
+      .catch((error) => {
+        console.error('Error:', error);
       });
   }
 }

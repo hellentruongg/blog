@@ -19,6 +19,9 @@ export class PostService {
           post.id = Number.parseInt(post.id);
           return post;
         });
+      })
+      .catch((error) => {
+        console.error('Error:', error);
       });
   }
 
@@ -30,9 +33,12 @@ export class PostService {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newPost),
     })
-      .then((res) => res.json())
-      .then((savedPost) => {
-        console.log('Saved post:', savedPost);
+      // .then((res) => res.json())
+      // .then((savedPost) => {
+      //   console.log('Saved post:', savedPost);
+      // });
+      .catch((error) => {
+        console.error('Error:', error);
       });
   }
 }
