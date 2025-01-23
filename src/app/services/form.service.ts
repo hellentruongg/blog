@@ -8,7 +8,7 @@ export class FormService {
 
   constructor() {}
 
-  togglePostForm() {
+  toggleForm() {
     this.isVisible = !this.isVisible;
   }
 }

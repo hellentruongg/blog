@@ -27,7 +27,7 @@ export class NavbarComponent {
     }
   }
 
-  onTogglePostForm() {
-    this.formService.togglePostForm();
+  onToggleForm() {
+    this.formService.toggleForm();
   }
 }
