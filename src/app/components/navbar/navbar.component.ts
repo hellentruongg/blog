@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { AdminService } from '../../services/admin.service';
+import { FormService } from '../../services/form.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { BtnComponent } from '../btn/btn.component';
@@ -15,7 +15,7 @@ export class NavbarComponent {
   isAdmin: boolean = false;
   faPlus = faPlus;
 
-  constructor(private router: Router, private adminService: AdminService) {}
+  constructor(private router: Router, private formService: FormService) {}
 
   toggleView() {
     if (!this.isAdmin) {
@@ -28,6 +28,6 @@ export class NavbarComponent {
   }
 
   onTogglePostForm() {
-    this.adminService.togglePostForm();
+    this.formService.togglePostForm();
   }
 }

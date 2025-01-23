@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AdminService } from '../../services/admin.service';
+import { FormService } from '../../services/form.service';
 import { PostFormComponent } from '../../components/post-form/post-form.component';
 
 @Component({
@@ -9,9 +9,9 @@ import { PostFormComponent } from '../../components/post-form/post-form.componen
   styleUrl: './admin.component.css',
 })
 export class AdminComponent {
-  constructor(private adminService: AdminService) {}
+  constructor(private formService: FormService) {}
 
-  get visible() {
-    return this.adminService.isVisible;
+  get form() {
+    return this.formService.isVisible;
   }
 }
