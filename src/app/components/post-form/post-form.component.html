@@ -1,1 +1,56 @@
-<p>post-form works!</p>
+<div>
+  <h1>Skapa inlägg</h1>
+
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div>
+      <label for="title">Titel</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        ngModel
+        #title="ngModel"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="creationDate">Datum för skapande</label>
+      <input
+        type="date"
+        id="creationDate"
+        name="creationDate"
+        ngModel
+        #creationDate="ngModel"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="thumbnailUrl">Ladda upp bild</label>
+      <input
+        type="file"
+        id="thumbnailUrl"
+        name="thumbnailUrl"
+        ngModel
+        #thumbnailUrl="ngModel"
+        accept="image/png, image/jpeg"
+        (change)="onImageUpload($event)"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="body">Beskrivning</label>
+      <textarea
+        id="body"
+        name="body"
+        ngModel
+        #body="ngModel"
+        required
+      ></textarea>
+    </div>
+
+    <input type="submit" value="Publicera" [disabled]="form.invalid" />
+  </form>
+</div>

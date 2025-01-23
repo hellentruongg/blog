@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { AdminService } from '../../../services/admin.service';
+import { AdminService } from '../../services/admin.service';
+import { PostFormComponent } from '../../components/post-form/post-form.component';
 
 @Component({
   selector: 'app-admin',
-  imports: [],
+  imports: [PostFormComponent],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css',
 })

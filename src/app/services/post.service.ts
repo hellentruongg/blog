@@ -21,4 +21,18 @@ export class PostService {
         });
       });
   }
+
+  postPost(newPost: any) {
+    this.posts.push(newPost);
+
+    fetch('http://localhost:3000/posts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newPost),
+    })
+      .then((res) => res.json())
+      .then((savedPost) => {
+        console.log('Saved post:', savedPost);
+      });
+  }
 }
