@@ -9,7 +9,7 @@ import { PostService } from '../../services/post.service';
   styleUrl: './post-form.component.css',
 })
 export class PostFormComponent {
-  base64image: string = '';
+  base64: string = '';
 
   constructor(private postService: PostService) {}
 
@@ -20,7 +20,7 @@ export class PostFormComponent {
 
     fileReader.onload = (readerEvent: any) => {
       console.log(readerEvent.target.result.toString());
-      this.base64image = readerEvent.target.result.toString();
+      this.base64 = readerEvent.target.result.toString();
     };
 
     fileReader.readAsDataURL(file);
@@ -36,7 +36,7 @@ export class PostFormComponent {
     const isoString = date.toISOString();
 
     newPost.id = postId;
-    newPost.thumbnailUrl = this.base64image;
+    newPost.thumbnailUrl = this.base64;
     newPost.creationDate = isoString;
     newPost.likes = 0;
     newPost.dislikes = 0;
