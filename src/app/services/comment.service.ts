@@ -17,6 +17,7 @@ export class CommentService {
       .then((data: Comment[]) => {
         this.comments = data;
         // console.log('Service COMMENTS:', this.comments); // comments array is populated
+        localStorage.setItem('comments', JSON.stringify(this.comments));
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -25,6 +26,7 @@ export class CommentService {
 
   postComment(newComment: any) {
     this.comments.push(newComment);
+    localStorage.setItem('comments', JSON.stringify(newComment));
 
     const id = newComment.postId;
 
