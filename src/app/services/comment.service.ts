@@ -25,8 +25,8 @@ export class CommentService {
   }
 
   postComment(newComment: any) {
-    this.comments.push(newComment);
-    localStorage.setItem('comments', JSON.stringify(newComment));
+    // this.comments.push(newComment);
+    // localStorage.setItem('comments', JSON.stringify(newComment));
 
     const id = newComment.postId;
 
@@ -35,10 +35,12 @@ export class CommentService {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newComment),
     })
-      // .then((res) => res.json())
-      // .then((savedComment) => {
-      //   console.log('Saved comment:', savedComment);
-      // });
+      .then((res) => res.json())
+      .then((savedComment) => {
+        this.comments.push(savedComment);
+        localStorage.setItem('comments', JSON.stringify(this.comments));
+        // console.log('Saved comment:', savedComment);
+      })
       .catch((error) => {
         console.error('Error:', error);
       });

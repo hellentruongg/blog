@@ -32,18 +32,20 @@ export class PostService {
   }
 
   postPost(newPost: any) {
-    this.posts.push(newPost);
-    localStorage.setItem('posts', JSON.stringify(newPost));
+    // this.posts.push(newPost);
+    // localStorage.setItem('posts', JSON.stringify(newPost));
 
     fetch('http://localhost:3000/posts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newPost),
     })
-      // .then((res) => res.json())
-      // .then((savedPost) => {
-      //   console.log('Saved post:', savedPost);
-      // });
+      .then((res) => res.json())
+      .then((savedPost) => {
+        this.posts.push(savedPost); // Assuming 'savedPost' is the server response
+        localStorage.setItem('posts', JSON.stringify(this.posts));
+        // console.log('Saved post:', savedPost);
+      })
       .catch((error) => {
         console.error('Error:', error);
       });

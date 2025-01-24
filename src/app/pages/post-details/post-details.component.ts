@@ -27,7 +27,9 @@ export class PostDetailsComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private postService: PostService
-  ) {}
+  ) {
+    // localStorage.clear();
+  }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params) => {
