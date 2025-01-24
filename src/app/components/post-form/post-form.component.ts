@@ -9,21 +9,27 @@ import { PostService } from '../../services/post.service';
   styleUrl: './post-form.component.css',
 })
 export class PostFormComponent {
-  base64: string = '';
+  // base64: string = '';
+  imageUrl: string = '';
 
   constructor(private postService: PostService) {}
 
-  onImageUpload(event: any) {
+  onSelectImage(event: any) {
     const file = event.target.files[0];
 
-    const fileReader = new FileReader();
+    // const fileReader = new FileReader();
 
-    fileReader.onload = (readerEvent: any) => {
-      console.log(readerEvent.target.result.toString());
-      this.base64 = readerEvent.target.result.toString();
-    };
+    // fileReader.onload = (readerEvent: any) => {
+    //   console.log(readerEvent.target.result.toString());
+    //   this.base64 = readerEvent.target.result.toString();
+    // };
 
-    fileReader.readAsDataURL(file);
+    // fileReader.readAsDataURL(file);
+
+    const url = URL.createObjectURL(file);
+    console.log(url);
+
+    this.imageUrl = url;
   }
 
   onSubmit(form: NgForm) {
@@ -36,7 +42,8 @@ export class PostFormComponent {
     const isoString = date.toISOString();
 
     newPost.id = postId;
-    newPost.thumbnailUrl = this.base64;
+    // newPost.thumbnailUrl = this.base64;
+    newPost.thumbnailUrl = this.imageUrl;
     newPost.creationDate = isoString;
     newPost.likes = 0;
     newPost.dislikes = 0;
