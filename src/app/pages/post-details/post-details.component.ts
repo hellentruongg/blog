@@ -78,13 +78,13 @@ export class PostDetailsComponent implements OnInit {
     return this.post?.dislikes ?? 0;
   }
 
-  likePost(): void {
+  incrementLikes(): void {
     this.likes++;
     localStorage.setItem('likes', JSON.stringify(this.likes));
     console.log(this.likes);
   }
 
-  dislikePost(): void {
+  incrementDislikes(): void {
     this.dislikes++;
     localStorage.setItem('dislikes', JSON.stringify(this.dislikes));
     console.log(this.dislikes);

@@ -7,16 +7,12 @@
   <p>{{ post.creationDate | date : "d MMMM yyyy" }}</p>
 
   <div>
-    <span (click)="likePost()">
+    <span (click)="incrementLikes()">
       <fa-icon [icon]="faThumbsUp"></fa-icon>{{ likes }}
     </span>
 
-    <span (click)="dislikePost()">
+    <span (click)="incrementDislikes()">
       <fa-icon [icon]="faThumbsDown"></fa-icon>{{ dislikes }}
-    </span>
-
-    <span>
-      <!-- <fa-icon [icon]="faComment"></fa-icon>{{ post.comments.length }} -->
     </span>
   </div>
   <img [src]="post.thumbnailUrl" />
