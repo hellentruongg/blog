@@ -9,6 +9,11 @@ export class PostService {
 
   constructor() {
     this.getPosts();
+
+    // let storagePosts = localStorage.getItem('posts');
+    // if (storagePosts !== null) {
+    //   this.posts = JSON.parse(storagePosts);
+    // }
   }
 
   getPosts() {
@@ -19,6 +24,7 @@ export class PostService {
           post.id = Number.parseInt(post.id);
           return post;
         });
+        localStorage.setItem('posts', JSON.stringify(this.posts));
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -27,6 +33,7 @@ export class PostService {
 
   postPost(newPost: any) {
     this.posts.push(newPost);
+    localStorage.setItem('posts', JSON.stringify(newPost));
 
     fetch('http://localhost:3000/posts', {
       method: 'POST',

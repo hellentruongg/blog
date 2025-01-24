@@ -44,25 +44,47 @@ export class PostDetailsComponent implements OnInit {
   }
 
   getPost(): Post | undefined {
+    const storedPost = localStorage.getItem('post');
+    console.log(storedPost); // output is undefined, on page refresh output is post
+
+    if (storedPost) {
+      return JSON.parse(storedPost);
+    }
+
     const post = this.postService.posts.find((post) => post.id === this.postId);
+    if (post) {
+      localStorage.setItem('post', JSON.stringify(post));
+    }
     return post;
   }
 
   getPostLikes(): number {
+    const storedLikes = localStorage.getItem('likes');
+    if (storedLikes !== null) {
+      return JSON.parse(storedLikes);
+    }
+
     return this.post?.likes ?? 0; // if post is undefined, likes will be set to 0 (just to prevent the runtime error)
   }
 
   getPostDislikes(): number {
+    const storedDislikes = localStorage.getItem('dislikes');
+    if (storedDislikes !== null) {
+      return JSON.parse(storedDislikes);
+    }
+
     return this.post?.dislikes ?? 0;
   }
 
   likePost(): void {
     this.likes++;
+    localStorage.setItem('likes', JSON.stringify(this.likes));
     console.log(this.likes);
   }
 
   dislikePost(): void {
     this.dislikes++;
+    localStorage.setItem('dislikes', JSON.stringify(this.dislikes));
     console.log(this.dislikes);
   }
 }
