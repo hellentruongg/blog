@@ -44,15 +44,6 @@
       "creationDate": "2023-03-07T00:00:00Z",
       "likes": 77,
       "dislikes": 0
-    },
-    {
-      "id": 6,
-      "title": "hejsan",
-      "creationDate": "2025-01-24T00:00:00.000Z",
-      "thumbnailUrl": "blob:http://localhost:4200/7703d2ba-49bb-4bc0-a650-cdd4ae845ad8",
-      "body": "testar här",
-      "likes": 0,
-      "dislikes": 0
     }
   ],
   "comments": [
