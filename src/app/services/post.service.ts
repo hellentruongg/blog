@@ -9,6 +9,7 @@ export class PostService {
 
   constructor() {
     this.getPosts();
+    localStorage.clear();
   }
 
   getPosts() {

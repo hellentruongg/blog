@@ -30,6 +30,7 @@ export class PostDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params) => {
       const id = params.get('id');
+
       if (id == null) {
         this.postId = null;
       } else {
