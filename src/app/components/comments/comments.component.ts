@@ -23,6 +23,5 @@ export class CommentsComponent {
 
   addComment(newComment: any) {
     this.commentService.postComment(newComment);
-    // console.log(newComment);
   }
 }
