@@ -34,7 +34,7 @@ export class CommentService {
       .then((res) => res.json())
       .then((savedComment) => {
         this.comments.push(savedComment);
-        localStorage.setItem('comments', JSON.stringify(this.comments));
+        localStorage.setItem('comments' + id, JSON.stringify(this.comments));
       })
       .catch((error) => {
         console.error('Error:', error);

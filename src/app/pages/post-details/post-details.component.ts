@@ -43,7 +43,7 @@ export class PostDetailsComponent implements OnInit {
   }
 
   getPost(): Post | undefined {
-    const storedPost = localStorage.getItem('post');
+    const storedPost = localStorage.getItem('post' + this.postId);
     console.log(storedPost);
 
     if (storedPost) {
@@ -52,13 +52,13 @@ export class PostDetailsComponent implements OnInit {
 
     const post = this.postService.posts.find((post) => post.id === this.postId);
     if (post) {
-      localStorage.setItem('post', JSON.stringify(post));
+      localStorage.setItem('post' + this.postId, JSON.stringify(post));
     }
     return post;
   }
 
   getPostLikes(): number {
-    const storedLikes = localStorage.getItem('likes');
+    const storedLikes = localStorage.getItem('likes' + this.postId);
     if (storedLikes !== null) {
       return JSON.parse(storedLikes);
     }
@@ -67,7 +67,7 @@ export class PostDetailsComponent implements OnInit {
   }
 
   getPostDislikes(): number {
-    const storedDislikes = localStorage.getItem('dislikes');
+    const storedDislikes = localStorage.getItem('dislikes' + this.postId);
     if (storedDislikes !== null) {
       return JSON.parse(storedDislikes);
     }
@@ -77,13 +77,16 @@ export class PostDetailsComponent implements OnInit {
 
   incrementLikes(): void {
     this.likes++;
-    localStorage.setItem('likes', JSON.stringify(this.likes));
+    localStorage.setItem('likes' + this.postId, JSON.stringify(this.likes));
     console.log(this.likes);
   }
 
   incrementDislikes(): void {
     this.dislikes++;
-    localStorage.setItem('dislikes', JSON.stringify(this.dislikes));
+    localStorage.setItem(
+      'dislikes' + this.postId,
+      JSON.stringify(this.dislikes)
+    );
     console.log(this.dislikes);
   }
 }
