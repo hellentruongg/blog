@@ -9,49 +9,37 @@ import { PostService } from '../../services/post.service';
   styleUrl: './post-form.component.css',
 })
 export class PostFormComponent {
-  // base64: string = '';
-  imageUrl: string = '';
+  base64: string = '';
 
   constructor(private postService: PostService) {}
 
   onSelectImage(event: any) {
     const file = event.target.files[0];
 
-    // const fileReader = new FileReader();
+    const fileReader = new FileReader();
 
-    // fileReader.onload = (readerEvent: any) => {
-    //   console.log(readerEvent.target.result.toString());
-    //   this.base64 = readerEvent.target.result.toString();
-    // };
+    fileReader.onload = (readerEvent: any) => {
+      console.log(readerEvent.target.result.toString());
+      this.base64 = readerEvent.target.result.toString();
+    };
 
-    // fileReader.readAsDataURL(file);
-
-    const url = URL.createObjectURL(file);
-    console.log(url);
-
-    this.imageUrl = url;
+    fileReader.readAsDataURL(file);
   }
 
   onSubmit(form: NgForm) {
-    console.log(form.value); // output of form.value.creationDate is 2025-01-22
-
     const newPost = form.value;
-
     const postId = this.postService.posts.length + 1;
-    const date = new Date(form.value.creationDate); // converts the date string into a JavaScript Date object.
+    const date = new Date(form.value.creationDate);
     const isoString = date.toISOString();
 
     newPost.id = postId;
-    // newPost.thumbnailUrl = this.base64;
-    newPost.thumbnailUrl = this.imageUrl;
+    newPost.thumbnailUrl = this.base64;
     newPost.creationDate = isoString;
     newPost.likes = 0;
     newPost.dislikes = 0;
 
-    console.log(newPost);
-
     this.postService.postPost(newPost);
 
-    // form.resetForm();
+    form.resetForm();
   }
 }

@@ -8,11 +8,6 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './contact-form.component.css',
 })
 export class ContactFormComponent {
-  // name: string = '';
-  // email: string = '';
-  // subject: string = '';
-  // message: string = '';
-
   onSubmit(form: NgForm) {
     console.log(form.value);
     form.resetForm();

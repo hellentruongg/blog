@@ -9,11 +9,6 @@ export class PostService {
 
   constructor() {
     this.getPosts();
-
-    // let storagePosts = localStorage.getItem('posts');
-    // if (storagePosts !== null) {
-    //   this.posts = JSON.parse(storagePosts);
-    // }
   }
 
   getPosts() {
@@ -32,9 +27,6 @@ export class PostService {
   }
 
   postPost(newPost: any) {
-    // this.posts.push(newPost);
-    // localStorage.setItem('posts', JSON.stringify(newPost));
-
     fetch('http://localhost:3000/posts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -42,9 +34,8 @@ export class PostService {
     })
       .then((res) => res.json())
       .then((savedPost) => {
-        this.posts.push(savedPost); // Assuming 'savedPost' is the server response
+        this.posts.push(savedPost);
         localStorage.setItem('posts', JSON.stringify(this.posts));
-        // console.log('Saved post:', savedPost);
       })
       .catch((error) => {
         console.error('Error:', error);

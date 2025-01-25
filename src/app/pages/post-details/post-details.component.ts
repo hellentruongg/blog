@@ -4,7 +4,6 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { faThumbsDown } from '@fortawesome/free-regular-svg-icons';
-import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { Post } from '../../models/post';
 import { PostService } from '../../services/post.service';
 import { CommentsComponent } from '../../components/comments/comments.component';
@@ -22,14 +21,11 @@ export class PostDetailsComponent implements OnInit {
   dislikes: number = 0;
   faThumbsUp = faThumbsUp;
   faThumbsDown = faThumbsDown;
-  faComment = faComment;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private postService: PostService
-  ) {
-    // localStorage.clear();
-  }
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params) => {
@@ -47,7 +43,7 @@ export class PostDetailsComponent implements OnInit {
 
   getPost(): Post | undefined {
     const storedPost = localStorage.getItem('post');
-    console.log(storedPost); // output is undefined, on page refresh output is post
+    console.log(storedPost);
 
     if (storedPost) {
       return JSON.parse(storedPost);
